@@ -18,14 +18,14 @@ data class AvatarResponse(val imageBase64: String)
 object RetrofitInstance {
 
     private val okHttpClient = OkHttpClient.Builder()
-        .connectTimeout(60, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
-        .writeTimeout(60, TimeUnit.SECONDS)
+        .connectTimeout(600, TimeUnit.SECONDS)
+        .readTimeout(600, TimeUnit.SECONDS)
+        .writeTimeout(600, TimeUnit.SECONDS)
         .build()
 
     val api: AvatarApi by lazy {
         Retrofit.Builder()
-            .baseUrl("https://d536-104-199-118-106.ngrok-free.app/") // Ensure trailing slash
+            .baseUrl("https://ca3a-104-198-4-186.ngrok-free.app") // Ensure trailing slash
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
