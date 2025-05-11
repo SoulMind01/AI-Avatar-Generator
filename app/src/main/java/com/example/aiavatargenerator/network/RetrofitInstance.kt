@@ -15,7 +15,7 @@ object RetrofitInstance {
 
     val api: AvatarApi by lazy {
         Retrofit.Builder()
-            .baseUrl("https://90fe-34-143-144-253.ngrok-free.app") // Ensure trailing slash if needed
+            .baseUrl("YOUR_FLASK_BACKEND_URL") // Ensure trailing slash if needed
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
