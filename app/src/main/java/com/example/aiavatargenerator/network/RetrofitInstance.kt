@@ -1,22 +1,12 @@
 package com.example.aiavatargenerator.network
 
+import com.example.aiavatargenerator.data.api.AvatarApi
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.POST
 import java.util.concurrent.TimeUnit
 
-interface AvatarApi {
-    @POST("/generate-avatar")
-    fun generateAvatar(@Body request: PromptRequest): retrofit2.Call<AvatarResponse>
-}
-
-data class PromptRequest(val prompt: String)
-data class AvatarResponse(val imageBase64: String)
-
 object RetrofitInstance {
-
     private val okHttpClient = OkHttpClient.Builder()
         .connectTimeout(600, TimeUnit.SECONDS)
         .readTimeout(600, TimeUnit.SECONDS)
@@ -25,7 +15,7 @@ object RetrofitInstance {
 
     val api: AvatarApi by lazy {
         Retrofit.Builder()
-            .baseUrl("https://ca3a-104-198-4-186.ngrok-free.app") // Ensure trailing slash
+            .baseUrl("https://90fe-34-143-144-253.ngrok-free.app") // Ensure trailing slash if needed
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
